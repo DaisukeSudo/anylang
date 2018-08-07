@@ -1,0 +1,1 @@
+List('H','E','L','L','O').foreach(println(_))
