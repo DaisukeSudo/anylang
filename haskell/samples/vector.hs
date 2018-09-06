@@ -2,8 +2,8 @@ module Main where
 
   main :: IO ()
   main = do
-    putStrLn "> let v1 = Vector2 1 2"
-    let v1 = Vector2 1 2
+    putStrLn "> let v1 = Vector2 {x = 1, y = 2}"
+    let v1 = Vector2 {x = 1, y = 2}
     print $ v1
     putStrLn ""
     putStrLn "> let v2 = Vector2 4 6"
@@ -18,10 +18,10 @@ module Main where
     putStrLn ""
 
 
-  data Vector2 = Vector2 Double Double deriving (Show)
+  data Vector2 = Vector2 { x :: Double, y :: Double } deriving (Show)
 
-  add (Vector2 x1 y1) (Vector2 x2 y2) =
-    Vector2 (x1 + x2) (y1 + y2)
+  add v1 v2 =
+    Vector2 {x = (x v1 + x v2), y = (y v1 + y v2)}
 
   len (Vector2 x1 y1) (Vector2 x2 y2) =
     sqrt (((x1 - x2) ^ 2) + ((y1 - y2) ^ 2))
