@@ -1,9 +1,9 @@
 module Main where
 
   main :: IO ()
-  main = do
-    putStrLn ['H']
-    putStrLn ['E']
-    putStrLn ['L']
-    putStrLn ['O']
-    putStrLn ['O']
+  main = p "HELLO"
+    where 
+      p [] = return ()
+      p (h:t) = do
+        putStrLn [h]
+        p t
